@@ -57,14 +57,7 @@ public object BlockingThrottler : ThreadSafeThrottler {
     override fun access(): Boolean = false
 }
 
-/**
- * A thread-safe throttler that allows dynamic resetting of its internal throttler instance.
- *
- * This class provides a mechanism to limit the rate of access to a resource or operation,
- * with the flexibility to replace the current throttler with another throttler implementation at runtime.
- *
- * @param throttler the initial throttler implementation.
- */
+
 /**
  * A thread-safe throttler that allows dynamic resetting of its internal throttler implementation.
  *
