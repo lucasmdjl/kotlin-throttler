@@ -65,19 +65,27 @@ public object BlockingThrottler : ThreadSafeThrottler {
  *
  * @param throttler the initial throttler implementation.
  */
+/**
+ * A thread-safe throttler that allows dynamic resetting of its internal throttler implementation.
+ *
+ * Note: While concurrent calls to `reset` and `access` may result in race conditions,
+ * these races are benign and do not affect the correctness of the program.
+ * The result of `access` may reflect either the old or new throttler depending on the timing of the operations,
+ * which is acceptable for the intended use case, as this would be the result if `access` ran just before
+ * or just after `reset`, respectively.
+ *
+ * This class is not strictly thread-safe but is safe for concurrent use.
+ */
 public class ResettableThrottler(@Volatile private var throttler: ThreadSafeThrottler) : ThreadSafeThrottler {
-    private val readWriteLock: ReentrantReadWriteLock = ReentrantReadWriteLock(true)
 
-    override fun access(): Boolean = readWriteLock.read {
-        throttler.access()
-    }
+    override fun access(): Boolean = throttler.access()
 
     /**
      * Resets the throttling parameters by replacing the current internal throttler with a new throttler instance.
      *
      * @param throttler the new throttler implementation.
      */
-    public fun reset(throttler: ThreadSafeThrottler): Unit = readWriteLock.write {
+    public fun reset(throttler: ThreadSafeThrottler) {
         this.throttler = throttler
     }
 }
