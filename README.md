@@ -61,3 +61,7 @@ fun main() {
 }
 
 ```
+
+## LICENSE
+
+AGPL-3.0
