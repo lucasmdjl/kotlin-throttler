@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>dev.lucasmdjl</groupId>
-    <artifactId>throttler</artifactId>
+    <artifactId>kotlin-throttler</artifactId>
     <version>0.2.0</version>
 
     <name>Throttler</name>
