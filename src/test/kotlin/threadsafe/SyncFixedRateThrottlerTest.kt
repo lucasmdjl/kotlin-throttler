@@ -21,7 +21,7 @@
 package threadsafe
 
 import internal.TestClock
-import io.github.lucasmdjl.throttler.threadsafe.SyncFixedRateThrottler
+import dev.lucasmdjl.throttler.threadsafe.SyncFixedRateThrottler
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertDoesNotThrow
 import org.junit.jupiter.api.assertThrows

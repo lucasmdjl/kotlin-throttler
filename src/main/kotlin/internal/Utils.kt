@@ -18,7 +18,7 @@
  *
  */
 
-package io.github.lucasmdjl.throttler.internal
+package dev.lucasmdjl.throttler.internal
 
 /**
  * An interface for providing the current time in milliseconds.

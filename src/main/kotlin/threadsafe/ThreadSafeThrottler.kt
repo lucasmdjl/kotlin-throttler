@@ -18,9 +18,9 @@
  *
  */
 
-package io.github.lucasmdjl.throttler.threadsafe
+package dev.lucasmdjl.throttler.threadsafe
 
-import io.github.lucasmdjl.throttler.Throttler
+import dev.lucasmdjl.throttler.Throttler
 
 /**
  * A marker interface indicating that a throttler implementation is thread-safe.

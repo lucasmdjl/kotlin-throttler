@@ -18,11 +18,11 @@
  *
  */
 
-package io.github.lucasmdjl.throttler
+package dev.lucasmdjl.throttler
 
-import io.github.lucasmdjl.fixedqueuecapacity.FixedCapacityLongArrayQueue
-import io.github.lucasmdjl.throttler.internal.SystemClock
-import io.github.lucasmdjl.throttler.internal.Clock
+import dev.lucasmdjl.fixedcapacityqueue.FixedCapacityLongArrayQueue
+import dev.lucasmdjl.throttler.internal.SystemClock
+import dev.lucasmdjl.throttler.internal.Clock
 
 /**
  * A throttler based on a specified number of allowed accesses within a given time period.

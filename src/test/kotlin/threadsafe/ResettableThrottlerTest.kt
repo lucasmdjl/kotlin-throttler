@@ -21,11 +21,11 @@
 package threadsafe
 
 import internal.TestClock
-import io.github.lucasmdjl.throttler.threadsafe.BlockingThrottler
-import io.github.lucasmdjl.throttler.threadsafe.NoThrottler
-import io.github.lucasmdjl.throttler.threadsafe.ResettableThrottler
-import io.github.lucasmdjl.throttler.threadsafe.SyncFixedRateThrottler
-import io.github.lucasmdjl.throttler.threadsafe.ThreadSafeThrottler
+import dev.lucasmdjl.throttler.threadsafe.BlockingThrottler
+import dev.lucasmdjl.throttler.threadsafe.NoThrottler
+import dev.lucasmdjl.throttler.threadsafe.ResettableThrottler
+import dev.lucasmdjl.throttler.threadsafe.SyncFixedRateThrottler
+import dev.lucasmdjl.throttler.threadsafe.ThreadSafeThrottler
 import io.mockk.confirmVerified
 import io.mockk.every
 import io.mockk.mockk

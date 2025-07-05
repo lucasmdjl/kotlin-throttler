@@ -20,7 +20,7 @@
 
 package internal
 
-import io.github.lucasmdjl.throttler.internal.Clock
+import dev.lucasmdjl.throttler.internal.Clock
 
 internal class TestClock : Clock {
     private var now: Long = 0

@@ -18,9 +18,9 @@
  *
  */
 
-package io.github.lucasmdjl.throttler
+package dev.lucasmdjl.throttler
 
-import io.github.lucasmdjl.throttler.threadsafe.ThreadSafeThrottler
+import dev.lucasmdjl.throttler.threadsafe.ThreadSafeThrottler
 
 /**
  * An interface for a throttling mechanism that limits the rate of access to a resource or operation.

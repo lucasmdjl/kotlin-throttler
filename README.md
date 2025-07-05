@@ -9,14 +9,14 @@ The Throttler library provides a mechanism to limit the rate of access to a reso
 ### Gradle
 ```kotlin
 dependencies {
-    implementation("io.github.lucasmdjl:throttler:0.1.0")
+    implementation("dev.lucasmdjl:throttler:0.1.0")
 }
 ```
 
 ### Maven
 ```xml
 <dependency>
-    <groupId>io.github.lucasmdjl</groupId>
+    <groupId>dev.lucasmdjl</groupId>
     <artifactId>throttler</artifactId>
     <version>0.1.0</version>
 </dependency>

@@ -19,7 +19,7 @@
  */
 
 import internal.TestClock
-import io.github.lucasmdjl.throttler.FixedRateThrottler
+import dev.lucasmdjl.throttler.FixedRateThrottler
 import org.junit.jupiter.api.Assertions.assertDoesNotThrow
 import org.junit.jupiter.api.Assertions.assertFalse
 import org.junit.jupiter.api.Assertions.assertTrue

@@ -20,7 +20,7 @@
 
 package threadsafe
 
-import io.github.lucasmdjl.throttler.threadsafe.NoThrottler
+import dev.lucasmdjl.throttler.threadsafe.NoThrottler
 import kotlin.test.Test
 import kotlin.test.assertTrue
 

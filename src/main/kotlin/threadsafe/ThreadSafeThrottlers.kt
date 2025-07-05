@@ -18,11 +18,11 @@
  *
  */
 
-package io.github.lucasmdjl.throttler.threadsafe
+package dev.lucasmdjl.throttler.threadsafe
 
-import io.github.lucasmdjl.throttler.FixedRateThrottler
-import io.github.lucasmdjl.throttler.internal.SystemClock
-import io.github.lucasmdjl.throttler.internal.Clock
+import dev.lucasmdjl.throttler.FixedRateThrottler
+import dev.lucasmdjl.throttler.internal.SystemClock
+import dev.lucasmdjl.throttler.internal.Clock
 import kotlin.concurrent.Volatile
 
 

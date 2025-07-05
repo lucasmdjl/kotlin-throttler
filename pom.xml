@@ -4,7 +4,7 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>io.github.lucasmdjl</groupId>
+    <groupId>dev.lucasmdjl</groupId>
     <artifactId>throttler</artifactId>
     <version>0.2.0</version>
 
@@ -127,9 +127,9 @@
             <version>${kotlin.version}</version>
         </dependency>
         <dependency>
-            <groupId>io.github.lucasmdjl</groupId>
-            <artifactId>fixed-capacity-queue</artifactId>
-            <version>0.1.0</version>
+            <groupId>dev.lucasmdjl</groupId>
+            <artifactId>kotlin-fixed-capacity-queue</artifactId>
+            <version>0.3.0</version>
         </dependency>
         <dependency>
             <groupId>org.jetbrains.kotlin</groupId>
