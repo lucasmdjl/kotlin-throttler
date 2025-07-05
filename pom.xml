@@ -10,7 +10,7 @@
 
     <name>Throttler</name>
     <description>Throttling implementations</description>
-    <url>https://github.com/lucasmdjl/throttler</url>
+    <url>https://github.com/lucasmdjl/kotlin-throttler</url>
 
     <licenses>
         <license>
@@ -27,9 +27,9 @@
     </developers>
 
     <scm>
-        <connection>scm:git:git://github.com/lucasmdjl/throttler.git</connection>
-        <developerConnection>scm:git:ssh://git@github.com:lucasmdjl/throttler.git</developerConnection>
-        <url>https://github.com/lucasmdjl/throttler</url>
+        <connection>scm:git:git://github.com/lucasmdjl/kotlin-throttler.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:lucasmdjl/kotlin-throttler.git</developerConnection>
+        <url>https://github.com/lucasmdjl/kotlin-throttler</url>
     </scm>
 
     <properties>
