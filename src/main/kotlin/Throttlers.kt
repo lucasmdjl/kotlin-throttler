@@ -21,8 +21,8 @@
 package io.github.lucasmdjl.throttler
 
 import io.github.lucasmdjl.fixedqueuecapacity.FixedCapacityLongArrayQueue
-import io.github.lucasmdjl.throttler.internal.SystemTimeProvider
-import io.github.lucasmdjl.throttler.internal.TimeProvider
+import io.github.lucasmdjl.throttler.internal.SystemClock
+import io.github.lucasmdjl.throttler.internal.Clock
 
 /**
  * A throttler based on a specified number of allowed accesses within a given time period.
@@ -32,9 +32,9 @@ import io.github.lucasmdjl.throttler.internal.TimeProvider
  * @param millis the time period in milliseconds. Must be positive.
  */
 public class FixedRateThrottler internal constructor(
-    count: Int, private val millis: Long, private val timeProvider: TimeProvider
+    count: Int, private val millis: Long, private val clock: Clock
 ) : Throttler {
-    public constructor(count: Int, millis: Long) : this(count, millis, SystemTimeProvider)
+    public constructor(count: Int, millis: Long) : this(count, millis, SystemClock)
     init {
         require(count > 0) { "count must be positive." }
         require(millis > 0) { "millis must be positive." }
@@ -43,7 +43,7 @@ public class FixedRateThrottler internal constructor(
     private val accesses: FixedCapacityLongArrayQueue = FixedCapacityLongArrayQueue(count)
 
     override fun access(): Boolean {
-        val now = timeProvider.currentTimeMillis()
+        val now = clock.currentTimeMillis()
         cleanUp(now)
         return accesses.offer(now)
     }

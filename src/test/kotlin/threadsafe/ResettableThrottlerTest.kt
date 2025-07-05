@@ -20,7 +20,7 @@
 
 package threadsafe
 
-import internal.TestTimeProvider
+import internal.TestClock
 import io.github.lucasmdjl.throttler.threadsafe.BlockingThrottler
 import io.github.lucasmdjl.throttler.threadsafe.NoThrottler
 import io.github.lucasmdjl.throttler.threadsafe.ResettableThrottler
@@ -57,7 +57,7 @@ public class ResettableThrottlerTest {
 
     @Test
     public fun reset_whenSyncFixedRateThrottler() {
-        val timeProvider = TestTimeProvider()
+        val timeProvider = TestClock()
         val throttler = ResettableThrottler(SyncFixedRateThrottler(5, 1000L, timeProvider))
         for (i in 0..<5) {
             throttler.access()

@@ -18,7 +18,7 @@
  *
  */
 
-import internal.TestTimeProvider
+import internal.TestClock
 import io.github.lucasmdjl.throttler.FixedRateThrottler
 import org.junit.jupiter.api.Assertions.assertDoesNotThrow
 import org.junit.jupiter.api.Assertions.assertFalse
@@ -66,7 +66,7 @@ public class FixedRateThrottlerTest {
 
     @Test
     public fun access_whenBelowCapacity() {
-        val throttler = FixedRateThrottler(5, 1000L, TestTimeProvider())
+        val throttler = FixedRateThrottler(5, 1000L, TestClock())
         for (i in 0..<5) {
             assertTrue(throttler.access())
         }
@@ -74,7 +74,7 @@ public class FixedRateThrottlerTest {
 
     @Test
     public fun access_whenAtCapacity() {
-        val throttler = FixedRateThrottler(5, 1000L, TestTimeProvider())
+        val throttler = FixedRateThrottler(5, 1000L, TestClock())
         for (i in 0..<5) {
             throttler.access()
         }
@@ -83,7 +83,7 @@ public class FixedRateThrottlerTest {
 
     @Test
     public fun access_whenAtCapacityAndFirstExpires() {
-        val timeProvider = TestTimeProvider()
+        val timeProvider = TestClock()
         val throttler = FixedRateThrottler(5, 1000L, timeProvider)
         throttler.access()
         timeProvider.advance(500L)
@@ -96,7 +96,7 @@ public class FixedRateThrottlerTest {
 
     @Test
     public fun access_whenAtCapacityAndFirstExpiresAndAtCapacityAgain() {
-        val timeProvider = TestTimeProvider()
+        val timeProvider = TestClock()
         val throttler = FixedRateThrottler(5, 1000L, timeProvider)
         throttler.access()
         timeProvider.advance(500L)

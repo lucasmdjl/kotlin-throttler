@@ -21,12 +21,9 @@
 package io.github.lucasmdjl.throttler.threadsafe
 
 import io.github.lucasmdjl.throttler.FixedRateThrottler
-import io.github.lucasmdjl.throttler.internal.SystemTimeProvider
-import io.github.lucasmdjl.throttler.internal.TimeProvider
-import java.util.concurrent.locks.ReentrantReadWriteLock
+import io.github.lucasmdjl.throttler.internal.SystemClock
+import io.github.lucasmdjl.throttler.internal.Clock
 import kotlin.concurrent.Volatile
-import kotlin.concurrent.read
-import kotlin.concurrent.write
 
 
 /**
@@ -35,9 +32,9 @@ import kotlin.concurrent.write
  * @param count the maximum number of accesses allowed within the time period. Must be positive.
  * @param millis the time period in milliseconds. Must be positive.
  */
-public class SyncFixedRateThrottler internal constructor(count: Int, millis: Long, timeProvider: TimeProvider) : ThreadSafeThrottler {
-    public constructor(count: Int, millis: Long) : this(count, millis, SystemTimeProvider)
-    private val unsafeFixedRateThrottler = FixedRateThrottler(count, millis, timeProvider)
+public class SyncFixedRateThrottler internal constructor(count: Int, millis: Long, clock: Clock) : ThreadSafeThrottler {
+    public constructor(count: Int, millis: Long) : this(count, millis, SystemClock)
+    private val unsafeFixedRateThrottler = FixedRateThrottler(count, millis, clock)
 
     @Synchronized
     override fun access(): Boolean = unsafeFixedRateThrottler.access()

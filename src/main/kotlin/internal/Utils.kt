@@ -23,7 +23,7 @@ package io.github.lucasmdjl.throttler.internal
 /**
  * An interface for providing the current time in milliseconds.
  */
-internal interface TimeProvider {
+internal interface Clock {
     /**
      * @return the current time according to this time provider in milliseconds.
      */
@@ -31,8 +31,8 @@ internal interface TimeProvider {
 }
 
 /**
- * A system-based implementation of [TimeProvider] that returns the current time in milliseconds.
+ * A system-based implementation of [Clock] that returns the current time in milliseconds.
  */
-internal object SystemTimeProvider : TimeProvider {
+internal object SystemClock : Clock {
     override fun currentTimeMillis(): Long = System.currentTimeMillis()
 }

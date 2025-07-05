@@ -20,7 +20,7 @@
 
 package threadsafe
 
-import internal.TestTimeProvider
+import internal.TestClock
 import io.github.lucasmdjl.throttler.threadsafe.SyncFixedRateThrottler
 import org.junit.jupiter.api.Assertions
 import org.junit.jupiter.api.Assertions.assertDoesNotThrow
@@ -69,7 +69,7 @@ public class SyncFixedRateThrottlerTest {
 
     @Test
     public fun access_whenBelowCapacity() {
-        val throttler = SyncFixedRateThrottler(5, 1000L, TestTimeProvider())
+        val throttler = SyncFixedRateThrottler(5, 1000L, TestClock())
         for (i in 0..<5) {
             Assertions.assertTrue(throttler.access())
         }
@@ -77,7 +77,7 @@ public class SyncFixedRateThrottlerTest {
 
     @Test
     public fun access_whenAtCapacity() {
-        val throttler = SyncFixedRateThrottler(5, 1000L, TestTimeProvider())
+        val throttler = SyncFixedRateThrottler(5, 1000L, TestClock())
         for (i in 0..<5) {
             throttler.access()
         }
@@ -86,7 +86,7 @@ public class SyncFixedRateThrottlerTest {
 
     @Test
     public fun access_whenAtCapacityAndFirstExpires() {
-        val timeProvider = TestTimeProvider()
+        val timeProvider = TestClock()
         val throttler = SyncFixedRateThrottler(5, 1000L, timeProvider)
         throttler.access()
         timeProvider.advance(500L)
